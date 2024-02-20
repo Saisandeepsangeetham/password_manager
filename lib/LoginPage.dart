@@ -11,7 +11,7 @@ class LoginPage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Password Manager',
+            'Password Manager APP',
             style: TextStyle(
               fontSize: 25.0,
               fontWeight: FontWeight.w500
