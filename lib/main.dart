@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:project_app/LoginPage.dart';
-void main(){
-  runApp(const MaterialApp(
-    home: LoginPage(),
+import 'package:shared_preferences/shared_preferences.dart';
+import 'LoginPage.dart';
+import 'register.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
+
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: isFirstTime ? Register() : Login(),
   ));
+
+  if (isFirstTime) {
+    await prefs.setBool('isFirstTime', false);
+  }
 }

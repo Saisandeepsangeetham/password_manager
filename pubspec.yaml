@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  form_field_validator: ^1.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -45,7 +46,16 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  shared_preferences: ^2.2.2
+  persistent_bottom_nav_bar: ^5.0.2
+  provider: ^6.1.1
+  sqflite: ^2.3.0
+  cached_network_image: ^3.3.0
+  favicon: ^1.1.1
+  intl: ^0.18.1
+  path: ^1.8.3
+  flutter_svg: ^2.0.9
+  flutter_native_splash: ^2.3.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -60,7 +70,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/logo.png
+    - assets/logo.png
+    - assets/login.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
