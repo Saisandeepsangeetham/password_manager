@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Home_screen.dart';
+import 'package:project_app/HomePage.dart';
 import 'register.dart';
 
 class Login extends StatefulWidget {
@@ -92,7 +92,7 @@ class _LoginState extends State<Login> {
                         final prefs = await SharedPreferences.getInstance(); // Get an instance of SharedPreferences
                         String? storedPassword = prefs.getString('password');
                         if (storedPassword == passwordController.text.trim()) {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home_Screen()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
                           print("Password verified");
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
