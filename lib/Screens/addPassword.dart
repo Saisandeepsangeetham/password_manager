@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:project_app/addpasswordmodel.dart';
 
 class AddPassword extends StatefulWidget {
   const AddPassword({super.key});
@@ -19,6 +20,17 @@ class _AddPasswordState extends State<AddPassword> {
   bool isObsecured = true;
 
   final GlobalKey<FormState> _addPasswordformKey = GlobalKey<FormState>();
+
+  void validate(BuildContext context) async{
+    final FormState form = _addPasswordformKey.currentState!;
+    if(form.validate()){
+      DateTime now = DateTime.now().toLocal();
+
+      final newPass = AddPasswordModel(
+
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +103,7 @@ class _AddPasswordState extends State<AddPassword> {
                 const Row(
                   children: [
                     Text(
-                      "url",
+                      "URL",
                       style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.w500
