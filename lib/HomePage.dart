@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
         context,
         controller: _controller,
         screens: const[
-          Vaultpage(),
+          VaultPage(),
           Generatorpage(),
           Settingspage(),
         ],

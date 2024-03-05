@@ -34,6 +34,13 @@ dependencies:
   shared_preferences: ^2.2.2
   persistent_bottom_nav_bar: ^5.0.2
   local_auth: ^2.2.0
+  provider: ^6.1.2
+  sqflite: ^2.3.2
+  path: ^1.9.0
+  favicon: ^1.1.2
+  encrypt: ^5.0.3
+  cached_network_image: ^3.3.1
+  flutter_native_splash: ^2.3.13
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
