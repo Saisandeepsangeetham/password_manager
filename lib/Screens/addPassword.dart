@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:project_app/addpasswordmodel.dart';
+import 'package:project_app/addPasswordModel.dart';
+import 'package:project_app/addpasswordprovider.dart';
+import 'package:project_app/Database/databasehelper.dart';
+import 'package:provider/provider.dart';
 
 class AddPassword extends StatefulWidget {
   const AddPassword({super.key});
@@ -27,8 +30,25 @@ class _AddPasswordState extends State<AddPassword> {
       DateTime now = DateTime.now().toLocal();
 
       final newPass = AddPasswordModel(
-
+        title: titlecontroller.text.trim(),
+        url: urlcontroller.text.trim(),
+        username: usernamecontroller.text.trim(),
+        password: passwordcontroller.text.trim(),
+        notes: notescontroller.text.trim(),
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        addeddate: now,
       );
+      context.read<DatabaseService>().addPassword(
+        password: newPass,
+      );
+      context.read<AddPasswordProvider>().userPasswords = [];
+      context.read<AddPasswordProvider>().fatchdata;
+      Navigator.pop(context);
+    }else {
+      const snackbar = SnackBar(
+        content: Text("Please enter all required fields."),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }
   }
 
@@ -229,7 +249,7 @@ class _AddPasswordState extends State<AddPassword> {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      // validate(context);
+                      validate(context);
                     },
                     child: const Text('Save'),
                   ),
